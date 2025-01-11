@@ -1,2 +1,6 @@
 
 *.db
+.idea/sqldialects.xml
+cert.pem
+key.pem
+.idea/sqldialects.xml
