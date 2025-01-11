@@ -1,8 +1,9 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
 import os
 import sqlite3
 from datetime import datetime
+
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 #teenhacks.onrender.com
 app = Flask(__name__)
@@ -27,15 +28,7 @@ def init_db():
     try:
         cursor = db.cursor()
         # Using explicit SQLite syntax
-        cursor.execute(f'''
-            CREATE TABLE IF NOT EXISTS session_data (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                session_id TEXT NOT NULL,
-                x INTEGER NOT NULL,
-                y INTEGER NOT NULL,
-                timestamp TEXT NOT NULL
-            );
-        ''')
+        cursor.execute(f'''CREATE TABLE IF NOT EXISTS session_data (id INTEGER PRIMARY KEY AUTOINCREMENT, session_id TEXT NOT NULL,x INTEGER NOT NULL,y INTEGER NOT NULL, timestamp TEXT NOT NULL );''')
         db.commit()
     finally:
         db.close()
@@ -46,11 +39,7 @@ def update_data(session_id, x, y):
     try:
         cursor = db.cursor()
         # Using explicit SQLite INSERT syntax
-        cursor.execute('''
-            INSERT INTO session_data 
-            (session_id, x, y, timestamp) 
-            VALUES (?, ?, ?, ?);
-        ''', (session_id, x, y, get_timestamp()))
+        cursor.execute('''INSERT INTO session_data (session_id, x, y, timestamp) VALUES (?, ?, ?, ?);''', (session_id, x, y, get_timestamp()))
         db.commit()
     finally:
         db.close()
