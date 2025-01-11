@@ -64,10 +64,12 @@ def home():
 @app.route('/upload', methods=['POST'])
 def upload_image():
     if 'image' not in request.files:
+        print("error1")
         return jsonify({'error': 'No image part in the request'}), 400
 
     file = request.files['image']
     if file.filename == '':
+        print("error2")
         return jsonify({'error': 'No selected file'}), 400
 
     try:
@@ -79,6 +81,7 @@ def upload_image():
             'file_path': file_path
         }), 200
     except Exception as e:
+        print("error3")
         return jsonify({'error': str(e)}), 500
 
 
