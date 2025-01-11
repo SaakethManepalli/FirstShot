@@ -60,16 +60,15 @@ def update_data(session_id, x, y):
 def home():
     return jsonify({'message': 'Server is running'}), 200
 
-
 @app.route('/upload', methods=['POST'])
 def upload_image():
     if 'image' not in request.files:
-        print("error1")
+        print("Error: No image part in the request")
         return jsonify({'error': 'No image part in the request'}), 400
 
     file = request.files['image']
     if file.filename == '':
-        print("error2")
+        print("Error: No selected file")
         return jsonify({'error': 'No selected file'}), 400
 
     try:
@@ -81,9 +80,8 @@ def upload_image():
             'file_path': file_path
         }), 200
     except Exception as e:
-        print("error3")
+        print(f"Error: {str(e)}")
         return jsonify({'error': str(e)}), 500
-
 
 @app.route('/sendback', methods=['POST'])
 def send_back():
