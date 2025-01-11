@@ -1,17 +1,14 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from pyngrok import ngrok, conf
 import os
-import ssl
-import certifi
-
-# Configure pyngrok to use the certifi certificate bundle
-conf.get_default().cert_path = certifi.where()
+import subprocess
 
 app = Flask(__name__)
 CORS(app)
 
-
+@app.route('/')
+def TEST():
+    return "Hello, World!"
 @app.route('/upload', methods=['POST'])
 def upload_image():
     if 'image' not in request.files:
@@ -26,19 +23,31 @@ def upload_image():
 
 
 if __name__ == '__main__':
-    # Create uploads directory if it doesn't exist
     if not os.path.exists('uploads'):
         os.makedirs('uploads')
 
+    # Install localtunnel if not already installed
     try:
-        # Configure SSL context
-        ssl_context = ssl.create_default_context(cafile=certifi.where())
+        subprocess.run(['npx', 'localtunnel', '--version'], check=True)
+    except:
+        print("Installing localtunnel...")
+        subprocess.run(['npm', 'install', '-g', 'localtunnel'])
 
-        # Start ngrok
-        public_url = ngrok.connect(5000)
-        print(f' * ngrok tunnel "http://127.0.0.1:5000" -> "{public_url}"')
+    # Start localtunnel in a separate process
+    tunnel_process = subprocess.Popen(['npx', 'localtunnel', '--port', '5000'],
+                                      stdout=subprocess.PIPE,
+                                      stderr=subprocess.PIPE,
+                                      universal_newlines=True)
 
+    print("Starting tunnel...")
+    # Wait a moment for the tunnel to start and get the URL
+    import time
+
+    time.sleep(2)
+
+    try:
         # Run Flask app
+        print("Starting Flask server...")
         app.run(port=5000, debug=True)
-    except Exception as e:
-        print(f"Error: {str(e)}")
+    finally:
+        tunnel_process.terminate()
