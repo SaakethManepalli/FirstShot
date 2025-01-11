@@ -50,6 +50,8 @@ def home():
     return jsonify({'message': 'Server is running'}), 200
 
 @app.route('/upload', methods=['POST'])
+@app.route('/upload', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def upload_image():
     if 'image' not in request.files:
         print("Error: No image part in the request")
@@ -64,6 +66,7 @@ def upload_image():
         file_path = os.path.join('uploads', file.filename)
         os.makedirs('uploads', exist_ok=True)
         file.save(file_path)
+        print(f"Image saved to {file_path}")
         return jsonify({
             'message': 'Image uploaded successfully',
             'file_path': file_path
@@ -71,7 +74,6 @@ def upload_image():
     except Exception as e:
         print(f"Error: {str(e)}")
         return jsonify({'error': str(e)}), 500
-
 @app.route('/sendback', methods=['POST'])
 def send_back():
     try:
