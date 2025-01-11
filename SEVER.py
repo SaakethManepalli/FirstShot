@@ -1,25 +1,33 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
+import sqlite3
+from datetime import datetime
+
+
+
+
+def getTime():
+    now = datetime.now()
+    current_time = now.strftime("%Y-%m-%d %H:%M:%S")
+    return current_time
+
 
 #https://teenhacks.onrender.com/
 
-import psycopg2
-conn = psycopg2.connect(
-    host="localhost",
-    database="firstshot",
-    user="saaketh",
-    password="timmy",
-    port="5432"
-)
+conn = sqlite3.connect('firstshot.db', check_same_thread=False)
 
-global sessionID
+# Create a cursor object
+cur = conn.cursor()
+
 app = Flask(__name__)
 CORS(app)
 
-def update(sessionID, x, y):
-    cur = conn.cursor()
-    query = f'CREATE TABLE {sessionID} {x} INTEGER, {y} INTEGER'
+def update( x, y):
+    query = (f'CREATE TABLE {getTime()} ('
+             f' id INTEGER PRIMARY KEY AUTOINCREMENT,'
+             f'{x} INTEGER,'
+             f' {y} INTEGER')
     cur.execute(query)
     conn.commit()
 
@@ -48,5 +56,5 @@ def send_back():
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 5999))
     app.run(host='0.0.0.0', port=port, debug=True)
