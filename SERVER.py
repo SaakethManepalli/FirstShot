@@ -95,6 +95,16 @@ def send_back():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/getdata', methods=['GET'])
+def getback():
+    init_db()
+    try:
+        cursor = db.cursor()
+        cursor.execute('SELECT * FROM session_data;')
+        data = cursor.fetchall()
+        return jsonify([dict(row) for row in data]), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 if __name__ == '__main__':

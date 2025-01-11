@@ -10,7 +10,6 @@ class ScreenshotThread(QObject):
         self.ctrl = ctrl
 
     def run(self):
-        print("Entered run in worker thread")
         self.ctrl['break'] = False
         start = 0
 
