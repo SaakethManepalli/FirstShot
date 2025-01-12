@@ -11,3 +11,8 @@ key.pem
 __pycache__/SSPreProcessing.cpython-311.pyc
 __pycache__/Detectron2.cpython-311.pyc
 model_final.pth
+*.log
+app.log
+*.yaml
+*.png
+*.html

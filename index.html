@@ -13,31 +13,32 @@
     <div id="root"></div>
 
     <script type="text/babel">
+
         const App = () => {
-            const [sessionId, setSessionId] = React.useState('');
             const [serverUrl, setServerUrl] = React.useState('');
             const [selectedFile, setSelectedFile] = React.useState(null);
             const [fetchError, setFetchError] = React.useState('');
             const [currentData, setCurrentData] = React.useState([]);
             const [outputMessage, setOutputMessage] = React.useState('');
             const [coordinates, setCoordinates] = React.useState({ x: 0, y: 0 });
+            const [sessionId, setSessionId] = React.useState('');
 
-            // Generate a random session ID on component load
+            // Generate a random Session ID when component loads
             React.useEffect(() => {
                 setSessionId(Math.random().toString(36).substring(2));
             }, []);
 
-            // Handle server URL input
+            // Server URL input handler
             const handleServerUrlChange = (e) => {
                 setServerUrl(e.target.value);
             };
 
-            // Handle file input change
+            // Handle file uploads
             const handleFileChange = (event) => {
                 setSelectedFile(event.target.files[0]);
+                setOutputMessage('');
             };
 
-            // Upload a file to the server
             const handleFileUpload = async () => {
                 if (!selectedFile) {
                     setOutputMessage('Please select a file before uploading.');
@@ -54,18 +55,20 @@
                         body: formData,
                     });
 
+                    const rawText = await response.text();
                     if (!response.ok) {
-                        throw new Error(`Server returned error: ${response.status}`);
+                        setOutputMessage(`Error: ${rawText}`);
+                        return;
                     }
 
-                    const data = await response.json();
-                    setOutputMessage(JSON.stringify(data, null, 2));
+                    const data = JSON.parse(rawText);
+                    setOutputMessage(`Upload Success: ${JSON.stringify(data, null, 2)}`);
                 } catch (error) {
                     setOutputMessage(`Error uploading file: ${error.message}`);
                 }
             };
 
-            // Handle coordinate input changes
+            // Coordinate Input Handlers
             const handleCoordinateChange = (e, coord) => {
                 setCoordinates((prev) => ({
                     ...prev,
@@ -73,7 +76,6 @@
                 }));
             };
 
-            // Send coordinates to the server
             const handleSendCoordinates = async () => {
                 try {
                     const response = await fetch(`${serverUrl}/sendback`, {
@@ -88,12 +90,14 @@
                         }),
                     });
 
+                    const rawText = await response.text();
                     if (!response.ok) {
-                        throw new Error(`Server returned error: ${response.status}`);
+                        setOutputMessage(`Error: ${rawText}`);
+                        return;
                     }
 
-                    const data = await response.json();
-                    setOutputMessage(JSON.stringify(data, null, 2));
+                    const data = JSON.parse(rawText);
+                    setOutputMessage(`Coordinates sent successfully: ${JSON.stringify(data, null, 2)}`);
                 } catch (error) {
                     setOutputMessage(`Error sending coordinates: ${error.message}`);
                 }
@@ -102,31 +106,29 @@
             // Fetch data from the server
             const handleFetchData = async () => {
                 if (!serverUrl) {
-                    setFetchError('Please specify a valid server URL.');
+                    setFetchError("Please specify a valid server URL.");
                     return;
                 }
 
                 try {
                     const response = await fetch(`${serverUrl}/getdata`);
                     const rawText = await response.text();
-                    console.log('Server Response:', rawText);
-
                     if (!response.ok) {
-                        throw new Error(`Server error: ${response.status}`);
+                        setFetchError(`Server error: ${rawText}`);
+                        return;
                     }
 
-                    const data = JSON.parse(rawText); // Parse JSON data
-                    setCurrentData(data);
+                    const data = JSON.parse(rawText);
+                    setCurrentData(data.data || []);
                     setFetchError('');
                 } catch (error) {
                     setFetchError(`Error retrieving data: ${error.message}`);
-                    console.error('Fetch error:', error.message);
                 }
             };
 
             return (
                 <div className="p-6 max-w-4xl mx-auto space-y-6">
-                    {/* Server URL Input */}
+                    {/* Server configuration */}
                     <div className="bg-white shadow rounded-lg p-6">
                         <h2 className="text-lg font-semibold mb-4">Server Configuration</h2>
                         <input
@@ -161,7 +163,7 @@
                         </button>
                     </div>
 
-                    {/* Coordinate Test */}
+                    {/* Coordinate Input */}
                     <div className="bg-white shadow rounded-lg p-6">
                         <h2 className="text-lg font-semibold mb-4">Coordinate Test</h2>
                         <div className="flex gap-4 mb-4">
@@ -198,9 +200,7 @@
                             Fetch Data
                         </button>
                         {fetchError && (
-                            <div className="text-red-500 mb-4">
-                                {fetchError}
-                            </div>
+                            <div className="text-red-500 mb-4">{fetchError}</div>
                         )}
                         <div className="overflow-x-auto">
                             {currentData.length > 0 ? (
@@ -230,7 +230,7 @@
                         </div>
                     </div>
 
-                    {/* Results */}
+                    {/* Output Messages */}
                     <div className="bg-white shadow rounded-lg p-6">
                         <h2 className="text-lg font-semibold mb-4">Results</h2>
                         <pre className="bg-gray-100 p-4 rounded overflow-x-auto">
@@ -241,7 +241,7 @@
             );
         };
 
-        ReactDOM.render(<App />, document.getElementById('root'));
+        ReactDOM.render(<App />, document.getElementById("root"));
     </script>
 </body>
 </html>
