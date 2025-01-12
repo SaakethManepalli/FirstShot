@@ -4,3 +4,10 @@
 cert.pem
 key.pem
 .idea/sqldialects.xml
+/detectron2/
+.DS_Store
+.idea/dataSources.xml
+.idea/vcs.xml
+__pycache__/SSPreProcessing.cpython-311.pyc
+__pycache__/Detectron2.cpython-311.pyc
+model_final.pth

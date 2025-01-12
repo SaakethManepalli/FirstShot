@@ -1,0 +1,86 @@
+2025-01-11 16:28:01,477 - INFO - Database initialized successfully
+2025-01-11 16:28:01,561 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5999
+ * Running on http://10.74.120.123:5999
+2025-01-11 16:28:01,561 - INFO - [33mPress CTRL+C to quit[0m
+2025-01-11 16:28:01,563 - INFO -  * Restarting with stat
+2025-01-11 16:28:02,132 - INFO - Database initialized successfully
+2025-01-11 16:28:02,218 - WARNING -  * Debugger is active!
+2025-01-11 16:28:02,278 - INFO -  * Debugger PIN: 174-372-289
+2025-01-11 16:28:02,843 - INFO - 🌐 LocalTunnel URL: https://true-taxis-heal.loca.lt
+2025-01-11 16:28:03,097 - INFO - 🌐 LocalTunnel URL: https://large-insects-bathe.loca.lt
+2025-01-11 16:28:26,192 - INFO - 127.0.0.1 - - [11/Jan/2025 16:28:26] "GET / HTTP/1.1" 200 -
+2025-01-11 16:29:06,987 - INFO -  * Detected change in '/Users/saakethmanepalli/PycharmProjects/TeenHacks/APP/LeftClickSS.py', reloading
+2025-01-11 16:29:07,015 - INFO -  * Restarting with stat
+2025-01-11 16:29:07,265 - INFO - Database initialized successfully
+2025-01-11 16:29:07,302 - WARNING -  * Debugger is active!
+2025-01-11 16:29:07,320 - INFO -  * Debugger PIN: 174-372-289
+2025-01-11 16:29:09,294 - INFO - 🌐 LocalTunnel URL: https://cool-plants-remain.loca.lt
+2025-01-11 16:34:05,931 - ERROR - LocalTunnel Error: /opt/homebrew/lib/node_modules/localtunnel/bin/lt.js:81
+2025-01-11 16:34:05,932 - ERROR - LocalTunnel Error: throw err;
+2025-01-11 16:34:05,932 - ERROR - LocalTunnel Error: ^
+2025-01-11 16:34:05,932 - ERROR - LocalTunnel Error: 
+2025-01-11 16:34:05,932 - ERROR - LocalTunnel Error: Error: connection refused: localtunnel.me:37321 (check your firewall settings)
+2025-01-11 16:34:05,932 - ERROR - LocalTunnel Error: at Socket.<anonymous> (/opt/homebrew/lib/node_modules/localtunnel/lib/TunnelCluster.js:52:11)
+2025-01-11 16:34:05,932 - ERROR - LocalTunnel Error: at Socket.emit (node:events:507:28)
+2025-01-11 16:34:05,933 - ERROR - LocalTunnel Error: at emitErrorNT (node:internal/streams/destroy:170:8)
+2025-01-11 16:34:05,933 - ERROR - LocalTunnel Error: at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+2025-01-11 16:34:05,933 - ERROR - LocalTunnel Error: at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+2025-01-11 16:34:05,933 - ERROR - LocalTunnel Error: 
+2025-01-11 16:34:05,933 - ERROR - LocalTunnel Error: Node.js v23.6.0
+2025-01-11 16:34:07,929 - ERROR - LocalTunnel Error: /opt/homebrew/lib/node_modules/localtunnel/bin/lt.js:81
+2025-01-11 16:34:07,929 - ERROR - LocalTunnel Error: throw err;
+2025-01-11 16:34:07,929 - ERROR - LocalTunnel Error: ^
+2025-01-11 16:34:07,929 - ERROR - LocalTunnel Error: 
+2025-01-11 16:34:07,929 - ERROR - LocalTunnel Error: Error: connection refused: localtunnel.me:28825 (check your firewall settings)
+2025-01-11 16:34:07,929 - ERROR - LocalTunnel Error: at Socket.<anonymous> (/opt/homebrew/lib/node_modules/localtunnel/lib/TunnelCluster.js:52:11)
+2025-01-11 16:34:07,929 - ERROR - LocalTunnel Error: at Socket.emit (node:events:507:28)
+2025-01-11 16:34:07,930 - ERROR - LocalTunnel Error: at emitErrorNT (node:internal/streams/destroy:170:8)
+2025-01-11 16:34:07,930 - ERROR - LocalTunnel Error: at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+2025-01-11 16:34:07,930 - ERROR - LocalTunnel Error: at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+2025-01-11 16:34:07,930 - ERROR - LocalTunnel Error: 
+2025-01-11 16:34:07,930 - ERROR - LocalTunnel Error: Node.js v23.6.0
+2025-01-11 16:37:33,717 - INFO - Database initialized successfully
+2025-01-11 16:37:33,769 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5999
+ * Running on http://10.74.120.123:5999
+2025-01-11 16:37:33,769 - INFO - [33mPress CTRL+C to quit[0m
+2025-01-11 16:37:33,770 - INFO -  * Restarting with stat
+2025-01-11 16:37:33,913 - INFO - Database initialized successfully
+2025-01-11 16:37:33,934 - WARNING -  * Debugger is active!
+2025-01-11 16:37:33,942 - INFO -  * Debugger PIN: 174-372-289
+2025-01-11 16:37:34,166 - INFO - 🌐 LocalTunnel URL: https://all-bugs-grow.loca.lt
+2025-01-11 16:37:34,170 - INFO - 🌐 LocalTunnel URL: https://stale-deer-cheat.loca.lt
+2025-01-11 16:48:46,688 - INFO -  * Detected change in '/Users/saakethmanepalli/PycharmProjects/TeenHacks/SERVER.py', reloading
+2025-01-11 16:48:46,794 - INFO -  * Restarting with stat
+2025-01-11 16:48:47,699 - INFO - Database initialized successfully
+2025-01-11 16:48:47,699 - ERROR - NGROK_AUTH_TOKEN environment variable not set
+2025-01-11 16:48:47,699 - ERROR - Failed to start ngrok tunnel
+2025-01-11 16:48:49,344 - INFO - Database initialized successfully
+2025-01-11 16:48:49,344 - ERROR - NGROK_AUTH_TOKEN environment variable not set
+2025-01-11 16:48:49,344 - ERROR - Failed to start ngrok tunnel
+2025-01-11 16:49:23,560 - INFO - Database initialized successfully
+2025-01-11 16:49:23,560 - ERROR - NGROK_AUTH_TOKEN environment variable not set
+2025-01-11 16:49:23,560 - ERROR - Failed to start ngrok tunnel
+2025-01-11 16:49:51,146 - INFO - Database initialized successfully
+2025-01-11 16:49:51,146 - ERROR - NGROK_AUTH_TOKEN environment variable not set
+2025-01-11 16:49:51,146 - ERROR - Failed to start ngrok tunnel
+2025-01-11 16:53:08,477 - INFO - Database initialized successfully
+2025-01-11 16:53:08,477 - ERROR - Ngrok startup error: module 'ngrok' has no attribute 'set_auth_token'
+Traceback (most recent call last):
+  File "/Users/saakethmanepalli/PycharmProjects/TeenHacks/SERVER.py", line 191, in start_ngrok
+    ngrok.set_auth_token(ngrok_token)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'ngrok' has no attribute 'set_auth_token'
+2025-01-11 16:53:08,478 - ERROR - Failed to start ngrok tunnel
+2025-01-11 16:54:24,275 - INFO - Database initialized successfully
+2025-01-11 16:54:24,313 - ERROR - Ngrok startup error: cannot import name 'SessionBuilder' from 'ngrok' (/Users/saakethmanepalli/PycharmProjects/TeenHacks/.venv/lib/python3.11/site-packages/ngrok/__init__.py)
+Traceback (most recent call last):
+  File "/Users/saakethmanepalli/PycharmProjects/TeenHacks/SERVER.py", line 191, in start_ngrok
+    listener = ngrok.forward(f"localhost:{port}",
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "ngrok_wrapper", line 4, in <module>
+ImportError: cannot import name 'SessionBuilder' from 'ngrok' (/Users/saakethmanepalli/PycharmProjects/TeenHacks/.venv/lib/python3.11/site-packages/ngrok/__init__.py)
+2025-01-11 16:54:24,314 - ERROR - Failed to start ngrok tunnel
